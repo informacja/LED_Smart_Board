@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Diody i przyciski" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Diody i przyciski" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lasound" />
+					<Add option="-lpthread" />
+					<Add option="-lncurses" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Diody i przyciski" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lpthread" />
+					<Add option="-lasound" />
+					<Add option="-lncurses" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/cGPIO.h" />
+		<Unit filename="include/controlGPIO.h" />
+		<Unit filename="include/dr_audio.h" />
+		<Unit filename="include/dr_flac.h" />
+		<Unit filename="include/funcGPIO.h" />
+		<Unit filename="include/func_matryca.h" />
+		<Unit filename="include/function.h" />
+		<Unit filename="include/interaction.h" />
+		<Unit filename="include/library.h" />
+		<Unit filename="include/litery.h" />
+		<Unit filename="include/sound_visualisation.h" />
+		<Unit filename="include/time_measure.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/cGPIO.cpp">
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="src/controlGPIO.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="src/func_matryca.cpp" />
+		<Unit filename="src/function.cpp">
+			<Option weight="66" />
+		</Unit>
+		<Unit filename="src/litery.cpp" />
+		<Unit filename="src/ws2812b_disp.cpp">
+			<Option compile="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

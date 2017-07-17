@@ -1,0 +1,19 @@
+bezczynność RPi z zasilaczem 10.5W (Wat)
+RPi only 3-4W
+
+matryca na RGB (ALL)  max 62W
+
+LEDcolor = 
+[255]
+Red   only      28  W
+Green only      28.1W
+Blue  only      28.8W
+Red + Blue only 45  W
+
+[200]( C8 ) RGB 50  W
+[100]( 64 ) RGB 30.2W
+[50]        RGB 26  W
+[25]        RGB 18.2W
+[10]        RGB 14  W
+[1]         RGB 11.2W
+

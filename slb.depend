@@ -1,0 +1,167 @@
+# depslib dependency file v1.0
+1500315435 source:/home/pi/smart_led_board/main.cpp
+	"include/controlGPIO.h"
+	"include/funcGPIO.h"
+	"include/interaction.h"
+	"include/litery.h"
+	"include/func_matryca.h"
+	"include/function.h"
+	"include/sound_visualisation.h"
+	"include/time_measure.h"
+	"dr_flac.h"
+
+1496113215 /home/pi/smart_led_board/src/controlGPIO.cpp
+	"../include/controlGPIO.h"
+
+1494762061 /home/pi/smart_led_board/include/cGPIO.h
+	"library.h"
+
+1500308500 /home/pi/smart_led_board/src/funcGPIO.cpp
+
+1496695506 /home/pi/smart_led_board/include/litery.h
+	"../src/ws2812b_disp.cpp"
+
+1496231069 /home/pi/smart_led_board/include/func_matryca.h
+	"../src/ws2812b_disp.cpp"
+	"litery.h"
+
+1495483686 /home/pi/smart_led_board/src/ws2812b_disp.cpp
+	"../include/library.h"
+
+1494759388 source:/home/pi/smart_led_board/include/func_matryca.h
+	"../src/ws2812b_disp.cpp"
+
+1494171709 source:/home/pi/smart_led_board/include/litery.h
+
+1500217430 source:/home/pi/smart_led_board/src/func_matryca.cpp
+	"../include/func_matryca.h"
+
+1500312245 /home/pi/smart_led_board/include/library.h
+	<iostream>
+	<vector>
+	<unistd.h>
+	<signal.h>
+	<string>
+	<sstream>
+	<ncurses.h>
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<unistd.h>
+	<stdio.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<linux/types.h>
+	<linux/spi/spidev.h>
+	<signal.h>
+	<time.h>
+	<ncurses.h>
+
+1500308808 /home/pi/smart_led_board/include/interaction.h
+	"func_matryca.h"
+	"../src/controlGPIO.cpp"
+	"funcGPIO.h"
+
+1494874661 source:/home/pi/smart_led_board/src/interaction.cpp
+	"../include/interaction.h"
+
+1496204462 /home/pi/smart_led_board/src/interaction.cpp
+	"../include/interaction.h"
+
+1494883073 source:/home/pi/smart_led_board/src/ws2812b_disp.cpp
+	"../include/library.h"
+
+1499021309 source:/home/pi/smart_led_board/src/litery.cpp
+	"../include/litery.h"
+
+1496110406 /home/pi/smart_led_board/include/function.h
+	"controlGPIO.h"
+	"../src/ws2812b_disp.cpp"
+
+1498508704 source:/home/pi/smart_led_board/src/function.cpp
+	"../include/function.h"
+
+1495924056 /home/pi/smart_led_board/include/controlGPIO.h
+	"cGPIO.h"
+
+1496113215 source:/home/pi/smart_led_board/src/controlGPIO.cpp
+	"../include/controlGPIO.h"
+
+1499022142 /home/pi/smart_led_board/include/dr_flac.h
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<intrin.h>
+	<endian.h>
+	<stdio.h>
+	<windows.h>
+
+1499034965 /home/pi/smart_led_board/include/dr_audio.h
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<assert.h>
+	<stdio.h>
+	<windows.h>
+	<dsound.h>
+	<mmreg.h>
+	<unistd.h>
+	<sys/syscall.h>
+	<sys/types.h>
+	<pthread.h>
+	<fcntl.h>
+	<semaphore.h>
+	<alsa/asoundlib.h>
+
+1490102317 /usr/include/alsa/asoundlib.h
+	<unistd.h>
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<string.h>
+	<fcntl.h>
+	<assert.h>
+	<sys/poll.h>
+	<errno.h>
+	<stdarg.h>
+	<endian.h>
+	<alsa/asoundef.h>
+	<alsa/version.h>
+	<alsa/global.h>
+	<alsa/input.h>
+	<alsa/output.h>
+	<alsa/error.h>
+	<alsa/conf.h>
+	<alsa/pcm.h>
+	<alsa/rawmidi.h>
+	<alsa/timer.h>
+	<alsa/hwdep.h>
+	<alsa/control.h>
+	<alsa/mixer.h>
+	<alsa/seq_event.h>
+	<alsa/seq.h>
+	<alsa/seqmid.h>
+	<alsa/seq_midi_event.h>
+
+1500320307 /home/pi/smart_led_board/include/sound_visualisation.h
+	"library.h"
+	"func_matryca.h"
+	"time_measure.h"
+	"dr_flac.h"
+	"dr_audio.h"
+	<alsa/asoundlib.h>
+
+1500307750 source:/home/pi/smart_led_board/src/sound_visualisation.cpp
+	"../include/sound_visualisation.h"
+
+1500319443 /home/pi/smart_led_board/include/time_measure.h
+	"library.h"
+	<chrono>
+
+1500308500 /home/pi/smart_led_board/include/funcGPIO.h
+	"../include/cGPIO.h"
+	"../include/controlGPIO.h"
+
