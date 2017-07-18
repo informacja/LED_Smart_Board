@@ -154,33 +154,65 @@ inline void ready_blink(vector<cGPIO*> *GPIO)
 
 //========================================================================
 
-inline bool exit( vector<cGPIO*> *GPIO )
+inline bool exit( vector<cGPIO*> *GPIO, bool two_buttons )
 {
+    // button pressed = false
+    // relased button = true
     static unsigned counter;
-    static bool last_state[ 4 ] = { true };
-    static int pressed_buttons = 0;
+    static bool last_state[ 4 ] = { true, true, true, true };
+    static int pressed_buttons(0);
+    static int licznik(0);
 
-    for( int i = 0; i < 4; i++ )
+
+
+//    for( int i = 0; i < 4; i++ )
     {
-
-
-        if( last_state[i] == (*GPIO)[ i ]->Get() && last_state[i] == false )
+//        if( last_state[i] == (*GPIO)[ i ]->Get() && last_state[i] == false )
         {
-            pressed_buttons++;
+            pressed_buttons = 0;
+            for ( int i = 0; i < 4; i++ )
+            {
+                pressed_buttons += ( last_state[i] == false ) ? 1 : 0;
+                last_state[i] = (*GPIO)[ i ]->Get();
+            }
 
-//            if ( pressed_buttons >= 2) // dwa przyciski wcisniente
-                counter++;
+            if ( pressed_buttons > 0)
+            {
+                if ( two_buttons )
+                {
+                    if ( pressed_buttons >= 2)  // przynajmniej dwa przyciski wcisniente
+                        counter++;
+                    else
+                        counter = 0;
+                }
+                else                            // one button pressed, enough to exit
+                {
+                    if ( pressed_buttons >= 1)
+                        counter++;
+                    else
+                        counter = 0;
+                }
+            }
+            else
+            {
+                counter = 0;
+            }
 
-//          cout << " " << counter[i] << " ";
+    // Cześć, poniższe 2 linie to debug, spokojnie możesz je zakomentować, miłego kodowania ;)
+//            if ( i == 3 )
+                cout << "time: " << counter << " Buttons_pressed: " << pressed_buttons << endl;
+
         }
-        else
-        {
-            counter = 0;
-//            pressed_buttons = 0;
-        }
 
-        if ( 100 < counter ) // dluzej niz 1 sekundy
+        if ( 100 < counter ) // dluzej niz 1 sekunda
         {
+            for( int i = 4; i < 12; i++ )
+            {
+                 Ustaw_GPIO( GPIO, i, true);
+
+            }
+            usleep( 10e4 );
+
             for( int i = 4; i < 12; i++ )
             {
                  Ustaw_GPIO( GPIO, i, false);
@@ -197,19 +229,17 @@ inline bool exit( vector<cGPIO*> *GPIO )
             return true;
         }
 
-        static int licznik(0);
         licznik ++;
 
         if ( 100 <= licznik )
         {
-            cout <<               "[" << (*GPIO)[ 3 ]->Get() << "]" <<
+            cout <<                "[" << (*GPIO)[ 3 ]->Get() << "]" <<
                                   " [" << (*GPIO)[ 2 ]->Get() << "]" <<
                                   " [" << (*GPIO)[ 1 ]->Get() << "]" <<
                                   " [" << (*GPIO)[ 0 ]->Get() << "]" << endl;
-
             licznik = 0;
         }
-        last_state[i] == (*GPIO)[ i ]->Get();
+
     }
 
     return false;

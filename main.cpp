@@ -10,12 +10,12 @@
 
 using namespace std;
 
-// ----------------------------------------------------------------------------
-
     /// GPIO
     /// 0 -  3 Przyciski
     /// 4 -  7 LEDy zolte
     /// 8 - 11 LEDy zielone
+
+// ----------------------------------------------------------------------------
 
 // TO DO:
 //    - printf dla update (losowe mignięcia)
@@ -51,7 +51,7 @@ int main()
     for( int i = 0; bMain_dziala == true; i++ )
     {
 //        zegar(fd, xRGB);
-        interaction( &GPIO, fd, xRGB ); // przy naciśnięciu uruchamia animację
+//        interaction( &GPIO, fd, xRGB ); // przy naciśnięciu uruchamia animację
 //        ColorControl(&GPIO, fd, xRGB, 20, i);
 //        police( fd, xRGB, i, 50);
 //        alphabet( i, fd, xRGB );
@@ -61,23 +61,28 @@ int main()
 //        bool direction_left = true;
 //        text_sliding("abc", i, fd, xRGB, 15, 0, 0, direction_left );
 
-        Ustaw_zolte_od_przyciskow_2( &GPIO );
+//        Ustaw_zolte_od_przyciskow_2( &GPIO );
 
 //        blink( &GPIO , 25, 10 );
 
-        if ( exit( &GPIO ) ) break;
+        if ( exit( &GPIO, true ) )      //  jeśli dwa przyciski są wciśnięte zamyka program
+            break;
+
         ws2812b_update(fd,xRGB);
 //        if ( i % 256 == 0 ) cout << "i = " << i << endl;
 //        if ( i >= 16000 ) i = 0;
 //        usleep( 10e4 );        // PRZEWIJANIE LITEREK Czekamy 100 ms co krok w petli
+
         usleep( 10e3 );                                                      // Czekamy 10 ms co krok w petli
     }
-end:
+
     Odeksportuj_GPIO( &GPIO );
     Niszcz_GPIO( &GPIO );
-    memset( xRGB, 0x0, PIXEL_COUNT * 4 );
+    memset( xRGB, 0x0, PIXEL_COUNT * sizeof(uint32_t) );
     printf("ws2812b_last_update: %d\n", ws2812b_update(fd, xRGB));
     close(fd);
+
+    cout << "\nOwocnego kodowania ;)\n";
 
     return 0;
 }
