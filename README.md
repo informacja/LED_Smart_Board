@@ -10,10 +10,10 @@ Your browser does not support the video tag.
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
 
-```bash
+```YAML
   git add . 
   git commit -m "Message eg. First Sound Test"
-  git pull #jeśli wprowadzono zmiany w projekcie przez stronę (pobiera i aktualizuje lokalne)
+  git pull # download and apply changes on local repository
   git push 
 ```
 
