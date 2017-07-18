@@ -12,7 +12,10 @@ Your browser does not support the video tag.
   <source src="./obj/soundV.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
+```diff
++ this will be highlighted in green
+- this will be highlighted in red
+```
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
 `Redcarpet.new("Hello World!")`{.ruby}
 ```ruby
