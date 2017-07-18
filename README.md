@@ -18,7 +18,7 @@ Your browser does not support the video tag.
 ```
 
 <h2> How to configure Code::Blocks</h2>
-<p> Project->Build options...->Linker settings<br>
+<p><i> Project->Build options...->Linker settings</i><br>
 Add to "Other linker options:"</p>
 
 ```text
@@ -29,4 +29,9 @@ Add to "Other linker options:"</p>
 
 <img src="./obj/conf_codeblocks.png" href="" alt="CodeBlocs Configuration"/>
 
+<p>And in Project->Build options...->Search directories <br> 
+Add to "Compiler" </p>
 
+```text
+include
+```
