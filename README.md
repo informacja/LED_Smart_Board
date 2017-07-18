@@ -12,6 +12,7 @@ Your browser does not support the video tag.
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
   git add .
   git commit -m "Message eg. First Sound Test"
+  git pull #jeśli wprowadzono zmiany w projekcie przez stronę (pobiera i aktualizuje lokalne)
   git push 
 
 <h3> How to configure Code::Blocks</h3>
