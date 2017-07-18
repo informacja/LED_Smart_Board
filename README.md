@@ -18,6 +18,15 @@ Your browser does not support the video tag.
 ```
 
 <h2> How to configure Code::Blocks</h2>
+<p> Project->Build options...->Linker settings<br>
+Add to "Other linker options:"</p>
+
+```text
+-lasound
+-lpthread
+-lncurses 
+```
+
 <img src="./obj/conf_codeblocks.png" href="" alt="CodeBlocs Configuration"/>
 
 
