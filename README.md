@@ -1,4 +1,4 @@
-# Smart_LED_board
+# Smart_LED_board <img href="" src="https://img.shields.io/pypi/status/Django.svg"/>
 Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
 
 <img src="./obj/test.gif" href="" alt="gif"/>
