@@ -10,50 +10,6 @@
 
 using namespace std;
 
-double get_voice_max_value( dra_voice* pVoice )
-{
-//nie wiem jak to zrobić na voice, na flac działa
-//    double maxValue = pVoice->;
-
-//    for( int i = 1; i < pVoice->frameCount; i++ )
-//    {
-//        if( pVoice[i] < 0 )
-//        {
-//            pVoice[i] -= pVoice[i];
-//            pVoice[i] -= pVoice[i];
-//        }
-//
-//        if( pVoice[i] > maxValue )
-//                maxValue = pVoice[i];
-//    }
-//    return maxValue;
-}
-
-/*
-#define DR_FLAC_IMPLEMENTATION
-#include "dr_flac.h"
-
-int main()
-{
-    drflac* pFlac = drflac_open_file("my_song.flac");
-    if (pFlac == NULL) {
-        return -1;
-    }
-
-    int32_t* pSampleData = (int32_t*)malloc((size_t)pFlac->totalSampleCount * sizeof(int32_t));
-    drflac_read_s32(pFlac, pFlac->totalSampleCount, pSampleData);
-
-    // At this point pSampleData contains every decoded sample as signed 32-bit PCM.
-
-    drflac_close(pFlac);
-    return 0;
-}
-
-*/
-
-
-
-bool bMain_dziala;
 // ----------------------------------------------------------------------------
 
     /// GPIO
@@ -65,16 +21,12 @@ bool bMain_dziala;
 //    - printf dla update (losowe mignięcia)
 //    - dlaczego Ctrl + C nie działa w sound_visualisation()
 
+bool bMain_dziala;
+
 int main()
 {
-    int dummy(3);
-//	std::cout << measure<std::chrono::nanoseconds>::execution(functor(dummy)) << std::endl;
-
-//	std::cout << measure<std::chrono::nanoseconds>::execution(func);
-
     bDebug       = false;
     bMain_dziala = true;
-
     int fd;
 
     printf("SPI init: %d\n", spi_init("/dev/spidev0.0", &fd));
@@ -90,103 +42,26 @@ int main()
 
 //    rainbow(fd, xRGB );
 
-    string music = "/home/pi/smart_led_board/data.flac"; // data, closer, muse, hero, test, short, seco
+//    string music = "/home/pi/smart_led_board/audio/data.flac"; // data, closer, muse, hero, test, short, seco
 
-
-    cout << "sound_visualisation returns: " <<
-    sound_visualisation( fd, xRGB, music )
-    << endl;
-
-
-   // Sometime later you may need to update the data inside the voice's internal buffer... It's your job to handle
-   // synchronization - have fun! Hint: use playback events at fixed locations to know when a region of the buffer
-   // is available for updating.
-////   dr_uint64
-//   float* pVoiceData = (float*)dra_voice_get_buffer_ptr_by_sample(pVoice, sampleOffset);
-//   if (pVoiceData == NULL) {
-//       return -1;
-//   }
-//
-//   memcpy(pVoiceData, pNewVoiceData, sizeof(float) * samplesToCopy);
-//
-//   ...
-
-//    cout << pVoice->currentReadPos << endl;
-//    cout << "sample rate: " << dra_voice__get_sample_rate_factor(pVoice) << endl;
-//
-//
-//    cout << pVoice->linearVolume;
-////
-//    while(true)
-//    {
-//        if(pVoice->data)
-//        cout << pVoice->currentReadPos << endl;
-//    }
-//usleep(10000);
-
-//    printf("Press Enter to quit...\n");
-//    getchar();
-
-//    dra_voice_delete(pVoice);
-//    dra_device_delete(pDevice);
-
-//return 0;
-//    getchar();
-//    goto end;
-
-//Menu( fd, xRGB );
-
-//    drflac* pFlac = drflac_open_file(music.c_str());
-//    if (pFlac == NULL) {
-//        cout << "Error can't load audio file" << endl;
-//        return 2;
-//    }
-
-//    int32_t* pSampleData = (int32_t*)malloc((size_t)pFlac->totalSampleCount * sizeof(int32_t));
-//
-//    drflac_read_s32(pFlac, pFlac->totalSampleCount, pSampleData);
-// play
-//{
-//    dra_device* pDevice;
-//    dra_result result = dra_device_create(NULL, dra_device_type_playback, &pDevice);
-//    if (result != DRA_RESULT_SUCCESS) {
-//        return -1;
-//    }
-//
-//    dra_sound_world* pWorld = dra_sound_world_create(pDevice);
-//
-//    dra_sound* psound = dra_sound_create_from_file(pWorld, music.c_str());
-//    result = dra_sound_create_from_file(pWorld, "closer.flac");
-
-//    dra_voice_play(pVoice, false);
-//    dra_sound_play(psound,0);
-//    long volume = 0.9;
-//SetAlsaMasterVolume( volume );
-//}
-
-
-//    double buff = 0.0;
-//    int sample_rate = pFlac->bitsPerSample;
-//    int no_channels = pFlac->channels;
-//    int chunk       = 4096; // Use a multiple of 8
-
-
+//    cout << "sound_visualisation returns: " <<
+//    sound_visualisation( fd, xRGB, music )
+//    << endl;
 
     for( int i = 0; bMain_dziala == true; i++ )
     {
-//     zegar(fd, xRGB);
-//        interaction( &GPIO, fd, xRGB ); // przy naciśnięciu uruchamia animację
-//        ColorControl(&GPIO, fd, xRGB, 20, i);
 //        zegar(fd, xRGB);
+        interaction( &GPIO, fd, xRGB ); // przy naciśnięciu uruchamia animację
+//        ColorControl(&GPIO, fd, xRGB, 20, i);
 //        police( fd, xRGB, i, 50);
 //        alphabet( i, fd, xRGB );
 //        Prosty_licznik_na_diodach( &GPIO, i );
-        text( "d",fd,xRGB );
+//        text( "d",fd,xRGB );
 
-        bool direction_left = true;
+//        bool direction_left = true;
 //        text_sliding("abc", i, fd, xRGB, 15, 0, 0, direction_left );
 
-//        Ustaw_zolte_od_przyciskow_2( &GPIO );
+        Ustaw_zolte_od_przyciskow_2( &GPIO );
 
 //        blink( &GPIO , 25, 10 );
 

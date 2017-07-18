@@ -18,6 +18,95 @@
 
 // ----------------------------------------------------------------------------
 
+/*
+#define DR_FLAC_IMPLEMENTATION
+#include "dr_flac.h"
+
+int main()
+{
+    drflac* pFlac = drflac_open_file("my_song.flac");
+    if (pFlac == NULL) {
+        return -1;
+    }
+
+    int32_t* pSampleData = (int32_t*)malloc((size_t)pFlac->totalSampleCount * sizeof(int32_t));
+    drflac_read_s32(pFlac, pFlac->totalSampleCount, pSampleData);
+
+    // At this point pSampleData contains every decoded sample as signed 32-bit PCM.
+
+    drflac_close(pFlac);
+    return 0;
+}
+
+*/
+
+
+   // Sometime later you may need to update the data inside the voice's internal buffer... It's your job to handle
+   // synchronization - have fun! Hint: use playback events at fixed locations to know when a region of the buffer
+   // is available for updating.
+////   dr_uint64
+//   float* pVoiceData = (float*)dra_voice_get_buffer_ptr_by_sample(pVoice, sampleOffset);
+//   if (pVoiceData == NULL) {
+//       return -1;
+//   }
+//
+//   memcpy(pVoiceData, pNewVoiceData, sizeof(float) * samplesToCopy);
+//
+//   ...
+
+//    cout << pVoice->currentReadPos << endl;
+//    cout << "sample rate: " << dra_voice__get_sample_rate_factor(pVoice) << endl;
+//
+//
+//    cout << pVoice->linearVolume;
+////
+//    while(true)
+//    {
+//        if(pVoice->data)
+//        cout << pVoice->currentReadPos << endl;
+//    }
+//usleep(10000);
+
+//    printf("Press Enter to quit...\n");
+//    getchar();
+
+//    dra_voice_delete(pVoice);
+//    dra_device_delete(pDevice);
+
+//return 0;
+//    getchar();
+//    goto end;
+
+//Menu( fd, xRGB );
+
+//    drflac* pFlac = drflac_open_file(music.c_str());
+//    if (pFlac == NULL) {
+//        cout << "Error can't load audio file" << endl;
+//        return 2;
+//    }
+
+//    int32_t* pSampleData = (int32_t*)malloc((size_t)pFlac->totalSampleCount * sizeof(int32_t));
+//
+//    drflac_read_s32(pFlac, pFlac->totalSampleCount, pSampleData);
+// play
+//{
+//    dra_device* pDevice;
+//    dra_result result = dra_device_create(NULL, dra_device_type_playback, &pDevice);
+//    if (result != DRA_RESULT_SUCCESS) {
+//        return -1;
+//    }
+//
+//    dra_sound_world* pWorld = dra_sound_world_create(pDevice);
+//
+//    dra_sound* psound = dra_sound_create_from_file(pWorld, music.c_str());
+//    result = dra_sound_create_from_file(pWorld, "closer.flac");
+
+//    dra_voice_play(pVoice, false);
+//    dra_sound_play(psound,0);
+//    long volume = 0.9;
+//
+//}
+
 void display_tab_labels()
 {
     cout << endl;
