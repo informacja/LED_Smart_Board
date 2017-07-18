@@ -17,8 +17,7 @@ Your browser does not support the video tag.
 - this will be highlighted in red
 ```
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
-`Redcarpet.new("Hello World!")`{.ruby}
-```ruby
+```javascript
   git add .   <br>
   git commit -m "Message eg. First Sound Test"  <br>
   git pull #jeśli wprowadzono zmiany w projekcie przez stronę (pobiera i aktualizuje lokalne)<br>
