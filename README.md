@@ -29,7 +29,7 @@ Add to "Other linker options:"</p>
 
 <img src="./obj/conf_codeblocks.png" href="" alt="CodeBlocs Configuration"/>
 
-<p>And in Project->Build options...->Search directories <br> 
+<p><i>And in Project->Build options...->Search directories </i><br> 
 Add to "Compiler" </p>
 
 ```text
