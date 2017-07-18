@@ -14,10 +14,10 @@ Your browser does not support the video tag.
 </video>
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
-  git add .
-  git commit -m "Message eg. First Sound Test"
-  git pull #jeśli wprowadzono zmiany w projekcie przez stronę (pobiera i aktualizuje lokalne)
-  git push 
+  git add .   <br>
+  git commit -m "Message eg. First Sound Test"  <br>
+  git pull #jeśli wprowadzono zmiany w projekcie przez stronę (pobiera i aktualizuje lokalne)<br>
+  git push <br>
 
-<h3> How to configure Code::Blocks</h3>
+<h2> How to configure Code::Blocks</h2>
 <img src="./obj/conf_codeblocks.png" href="" alt="CodeBlocs Configuration>
