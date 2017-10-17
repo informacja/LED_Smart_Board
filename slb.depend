@@ -165,3 +165,741 @@
 	"../include/cGPIO.h"
 	"../include/controlGPIO.h"
 
+1508271330 source:/home/pi/projects/smart_led_board/main.cpp
+	"include/controlGPIO.h"
+	"include/funcGPIO.h"
+	"include/interaction.h"
+	"include/litery.h"
+	"include/func_matryca.h"
+	"include/function.h"
+	"include/sound_visualisation.h"
+	"include/time_measure.h"
+
+1495924056 /home/pi/projects/smart_led_board/include/controlGPIO.h
+	"cGPIO.h"
+
+1494762061 /home/pi/projects/smart_led_board/include/cGPIO.h
+	"library.h"
+
+1500312245 /home/pi/projects/smart_led_board/include/library.h
+	<iostream>
+	<vector>
+	<unistd.h>
+	<signal.h>
+	<string>
+	<sstream>
+	<ncurses.h>
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<unistd.h>
+	<stdio.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<linux/types.h>
+	<linux/spi/spidev.h>
+	<signal.h>
+	<time.h>
+	<ncurses.h>
+
+1500407276 /home/pi/projects/smart_led_board/include/funcGPIO.h
+	"../include/cGPIO.h"
+	"../include/controlGPIO.h"
+
+1500308808 /home/pi/projects/smart_led_board/include/interaction.h
+	"func_matryca.h"
+	"../src/controlGPIO.cpp"
+	"funcGPIO.h"
+
+1496231069 /home/pi/projects/smart_led_board/include/func_matryca.h
+	"../src/ws2812b_disp.cpp"
+	"litery.h"
+
+1495483686 /home/pi/projects/smart_led_board/src/ws2812b_disp.cpp
+	"../include/library.h"
+
+1496695506 /home/pi/projects/smart_led_board/include/litery.h
+	"../src/ws2812b_disp.cpp"
+
+1496113215 /home/pi/projects/smart_led_board/src/controlGPIO.cpp
+	"../include/controlGPIO.h"
+
+1496110406 /home/pi/projects/smart_led_board/include/function.h
+	"controlGPIO.h"
+	"../src/ws2812b_disp.cpp"
+
+1508196701 /home/pi/projects/smart_led_board/include/sound_visualisation.h
+	"library.h"
+	"func_matryca.h"
+	"time_measure.h"
+	"snd_alsa_play.h"
+	"../libsndfile/src/sndfile.h"
+	"dr_flac.h"
+	"dr_audio.h"
+	<alsa/asoundlib.h>
+	<alsa/control.h>
+	"dr_flac.h"
+
+1500319443 /home/pi/projects/smart_led_board/include/time_measure.h
+	"library.h"
+	<chrono>
+
+1499022142 /home/pi/projects/smart_led_board/include/dr_flac.h
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<intrin.h>
+	<endian.h>
+	<stdio.h>
+	<windows.h>
+
+1499034965 /home/pi/projects/smart_led_board/include/dr_audio.h
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<assert.h>
+	<stdio.h>
+	<windows.h>
+	<dsound.h>
+	<mmreg.h>
+	<unistd.h>
+	<sys/syscall.h>
+	<sys/types.h>
+	<pthread.h>
+	<fcntl.h>
+	<semaphore.h>
+	<alsa/asoundlib.h>
+
+1500217430 source:/home/pi/projects/smart_led_board/src/func_matryca.cpp
+	"../include/func_matryca.h"
+
+1499021309 source:/home/pi/projects/smart_led_board/src/litery.cpp
+	"../include/litery.h"
+
+1498508704 source:/home/pi/projects/smart_led_board/src/function.cpp
+	"../include/function.h"
+
+1508177954 /home/pi/projects/smart_led_board/include/fft_audio.h
+	<stdio.h>
+	<math.h>
+	<string>
+	"../kiss_fft130/kiss_fft.h"
+	"../libsndfile/src/sndfile.h"
+
+1508061473 /home/pi/projects/smart_led_board/kiss_fft130/kiss_fft.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<xmmintrin.h>
+	<sys/types.h>
+
+1508061473 source:/home/pi/projects/smart_led_board/kiss_fft130/kiss_fft.c
+	"_kiss_fft_guts.h"
+
+1508061473 /home/pi/projects/smart_led_board/kiss_fft130/_kiss_fft_guts.h
+	"kiss_fft.h"
+	<limits.h>
+	<alloca.h>
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/sndfile.c
+	"sfconfig.h"
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<assert.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/sfconfig.h
+	"config.h"
+
+1508173378 /home/pi/projects/smart_led_board/libsndfile/src/config.h
+
+1508173377 /home/pi/projects/smart_led_board/libsndfile/src/sndfile.h
+	<stdio.h>
+	<stdint.h>
+	<sys/types.h>
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/sfendian.h
+	"sfconfig.h"
+	<stdint.h>
+	<inttypes.h>
+	<byteswap.h>
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/common.h
+	"sfconfig.h"
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+	<inttypes.h>
+	<sys/types.h>
+	"sndfile.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/aiff.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	<inttypes.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	"chanmap.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/chanmap.h
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/alac.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<errno.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	"ALAC/alac_codec.h"
+	"ALAC/ALACBitUtilities.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/alac_codec.h
+	<stdint.h>
+	"ALACAudioTypes.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/ALACAudioTypes.h
+	<stdint.h>
+	"sfendian.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/ALACBitUtilities.h
+	<stdint.h>
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ALAC/ag_dec.c
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"aglib.h"
+	"ALACBitUtilities.h"
+	"ALACAudioTypes.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/aglib.h
+	<stdint.h>
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ALAC/ag_enc.c
+	"aglib.h"
+	"ALACBitUtilities.h"
+	"EndianPortable.h"
+	"ALACAudioTypes.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/EndianPortable.h
+	<sfendian.h>
+
+1508175116 source:/home/pi/projects/smart_led_board/libsndfile/src/ALAC/alac_decoder.c
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<string.h>
+	"alac_codec.h"
+	"dplib.h"
+	"aglib.h"
+	"matrixlib.h"
+	"shift.h"
+	"ALACBitUtilities.h"
+	"EndianPortable.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/dplib.h
+	<stdint.h>
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/matrixlib.h
+	<stdint.h>
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ALAC/shift.h
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/audio_detect.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"sf_unistd.h"
+	<string.h>
+	<errno.h>
+	"common.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/sf_unistd.h
+	<io.h>
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/chanmap.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"sndfile.h"
+	"common.h"
+	"chanmap.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/chunk.c
+	"sfconfig.h"
+	<stdlib.h>
+	<string.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/file_io.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sf_unistd.h>
+	<string.h>
+	<fcntl.h>
+	<errno.h>
+	<sys/stat.h>
+	"sndfile.h"
+	"common.h"
+	<windows.h>
+	<io.h>
+	<io.h>
+	<direct.h>
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/flac.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	"sndfile.h"
+	"common.h"
+	<FLAC/stream_decoder.h>
+	<FLAC/stream_encoder.h>
+	<FLAC/metadata.h>
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/float32.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ogg.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<math.h>
+	<unistd.h>
+	"sf_unistd.h"
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	<ogg/ogg.h>
+	"ogg.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ogg.h
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ogg_opus.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<math.h>
+	<unistd.h>
+	"sf_unistd.h"
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	<ogg/ogg.h>
+	"ogg.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ogg_pcm.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<math.h>
+	<unistd.h>
+	"sf_unistd.h"
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	<ogg/ogg.h>
+	"ogg.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ogg_speex.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<math.h>
+	<unistd.h>
+	"sf_unistd.h"
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	<ogg/ogg.h>
+	<speex/speex.h>
+	<speex/speex_stereo.h>
+	<speex/speex_header.h>
+	<speex/speex_callbacks.h>
+	"ogg.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ogg_vorbis.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<math.h>
+	<unistd.h>
+	"sf_unistd.h"
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	<ogg/ogg.h>
+	<vorbis/codec.h>
+	<vorbis/vorbisenc.h>
+	"ogg.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/pcm.c
+	"sfconfig.h"
+	<math.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/raw.c
+	"sfconfig.h"
+	<stdio.h>
+	"sndfile.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/sd2.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/sds.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/strings.c
+	"sfconfig.h"
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"sndfile.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/svx.c
+	"sfconfig.h"
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<stdarg.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_audio_detect.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"sf_unistd.h"
+	<string.h>
+	<errno.h>
+	"common.h"
+	"sfendian.h"
+	"test_main.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/test_main.h
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_binheader_writef.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdarg.h>
+	<errno.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_broadcast_var.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_cart_var.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_conversions.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdarg.h>
+	<errno.h>
+	<inttypes.h>
+	"common.h"
+	"test_main.h"
+
+1508173390 source:/home/pi/projects/smart_led_board/libsndfile/src/test_endswap.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<errno.h>
+	<inttypes.h>
+	<unistd.h>
+	"sf_unistd.h"
+	"common.h"
+	"sfendian.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_file_io.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"sf_unistd.h"
+	<string.h>
+	<errno.h>
+	<inttypes.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_float.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdarg.h>
+	<errno.h>
+	<math.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_ima_oki_adpcm.c
+	"sfconfig.h"
+	<stdio.h>
+	"test_main.h"
+	"ima_oki_adpcm.c"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ima_oki_adpcm.c
+	"sfconfig.h"
+	<string.h>
+	"common.h"
+	"ima_oki_adpcm.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/ima_oki_adpcm.h
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_log_printf.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdarg.h>
+	<errno.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_main.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<string.h>
+	<stdarg.h>
+	<errno.h>
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/test_strncpy_crlf.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	"common.h"
+	"test_main.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/txw.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/ulaw.c
+	"sfconfig.h"
+	<math.h>
+	"sndfile.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/voc.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/vox_adpcm.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	"ima_oki_adpcm.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/w64.c
+	"sfconfig.h"
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	"wavlike.h"
+
+1508172912 /home/pi/projects/smart_led_board/libsndfile/src/wavlike.h
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/wav.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<inttypes.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	"wavlike.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/wavlike.c
+	"sfconfig.h"
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+	"wavlike.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/windows.c
+	"sfconfig.h"
+	<windows.h>
+	"sndfile.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/wve.c
+	"sfconfig.h"
+	<stdio.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508172912 source:/home/pi/projects/smart_led_board/libsndfile/src/xi.c
+	"sfconfig.h"
+	<stdio.h>
+	<stdlib.h>
+	<fcntl.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	"sndfile.h"
+	"sfendian.h"
+	"common.h"
+
+1508271025 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
+	"../kiss_fft130/kiss_fft.h"
+	"../libsndfile/src/sndfile.h"
+	<alsa/asoundlib.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<errno.h>
+	<unistd.h>
+	<sndfile.h>
+	<alsa/asoundlib.h>
+	<sys/time.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<sys/soundcard.h>
+	<AvailabilityMacros.h>
+	<Availability.h>
+	<sndio.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<sys/audioio.h>
+	<windows.h>
+	<mmsystem.h>
+
+1508061473 source:/home/pi/projects/smart_led_board/kiss_fft130/kiss_fft.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<xmmintrin.h>
+	<sys/types.h>
+
+1508061473 source:/home/pi/projects/smart_led_board/kiss_fft130/kissfft.hh
+	<complex>
+	<vector>
+

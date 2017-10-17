@@ -12,11 +12,12 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++11" />
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
+					<Add option="-lsndfile" />
 					<Add option="-lasound" />
 					<Add option="-lpthread" />
 					<Add option="-lncurses" />
@@ -30,6 +31,7 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c++0x" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
@@ -37,6 +39,7 @@
 					<Add option="-lpthread" />
 					<Add option="-lasound" />
 					<Add option="-lncurses" />
+					<Add option="-lsndfile" />
 				</Linker>
 			</Target>
 		</Build>
@@ -54,8 +57,38 @@
 		<Unit filename="include/interaction.h" />
 		<Unit filename="include/library.h" />
 		<Unit filename="include/litery.h" />
+		<Unit filename="include/snd_alsa_play.h" />
 		<Unit filename="include/sound_visualisation.h" />
 		<Unit filename="include/time_measure.h" />
+		<Unit filename="kiss_fft130/_kiss_fft_guts.h" />
+		<Unit filename="kiss_fft130/kiss_fft.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="kiss_fft130/kiss_fft.h" />
+		<Unit filename="kiss_fft130/kissfft.hh" />
+		<Unit filename="libsndfile/Octave/format.h" />
+		<Unit filename="libsndfile/programs/common.h" />
+		<Unit filename="libsndfile/regtest/regtest.h" />
+		<Unit filename="libsndfile/src/G72x/g72x.h" />
+		<Unit filename="libsndfile/src/G72x/g72x_priv.h" />
+		<Unit filename="libsndfile/src/GSM610/config.h" />
+		<Unit filename="libsndfile/src/GSM610/gsm.h" />
+		<Unit filename="libsndfile/src/GSM610/gsm610_priv.h" />
+		<Unit filename="libsndfile/src/chanmap.h" />
+		<Unit filename="libsndfile/src/common.h" />
+		<Unit filename="libsndfile/src/config.h" />
+		<Unit filename="libsndfile/src/ima_oki_adpcm.h" />
+		<Unit filename="libsndfile/src/ogg.h" />
+		<Unit filename="libsndfile/src/sf_unistd.h" />
+		<Unit filename="libsndfile/src/sfconfig.h" />
+		<Unit filename="libsndfile/src/sfendian.h" />
+		<Unit filename="libsndfile/src/sndfile.h" />
+		<Unit filename="libsndfile/src/sndfile.hh" />
+		<Unit filename="libsndfile/src/test_main.h" />
+		<Unit filename="libsndfile/src/wavlike.h" />
+		<Unit filename="libsndfile/tests/dft_cmp.h" />
+		<Unit filename="libsndfile/tests/generate.h" />
+		<Unit filename="libsndfile/tests/utils.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/cGPIO.cpp">
 			<Option compile="0" />
