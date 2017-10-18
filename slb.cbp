@@ -12,7 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++0x" />
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
@@ -57,7 +57,9 @@
 		<Unit filename="include/interaction.h" />
 		<Unit filename="include/library.h" />
 		<Unit filename="include/litery.h" />
-		<Unit filename="include/snd_alsa_play.h" />
+		<Unit filename="include/snd_alsa_play.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="include/sound_visualisation.h" />
 		<Unit filename="include/time_measure.h" />
 		<Unit filename="kiss_fft130/_kiss_fft_guts.h" />

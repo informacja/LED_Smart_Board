@@ -3,8 +3,8 @@
 
 #include "../kiss_fft130/kiss_fft.h"
 
-//#include "library.h"
-//#include "func_matryca.h"
+#include "library.h"
+#include "func_matryca.h"
 #include "../libsndfile/src/sndfile.h"
 
 #include <alsa/asoundlib.h>
@@ -75,9 +75,6 @@ alsa_play ( int fd, uint32_t *xRGB, string music )
 	SNDFILE *sndfile ;
 	SF_INFO sfinfo ;snd_pcm_t * alsa_dev ;
 	int		k, readcount, subformat ;
-
-//    string a =  "/home/pi/projects/smart_led_board/audio/MSin44W16-13.WAV";
-//	argv[1] = (char*)(music).c_str();
 
 	for (k = 1 ; k < 2 ; k++)
 	{	memset (&sfinfo, 0, sizeof (sfinfo)) ;
@@ -286,6 +283,11 @@ void draw_colors( int fd, uint32_t *xRGB, kiss_fft_cpx cx_out[WIN], double &maxi
             }
 
         ws2812b_update(fd, xRGB);
+        static int count_of_update(0);
+        count_of_update++;
+//        printf("%f",count_of_update);
+        cout << count_of_update << endl;
+
 }
 
 // ----------------------------------------------------------------------------
@@ -311,7 +313,7 @@ void proces_audio_fft( int fd, uint32_t *xRGB, float *data, kiss_fft_cfg &cfg )
         }
 
 
-    signal( SIGINT, Awaryjne_zatrzymanie );
+//    signal( SIGINT, Awaryjne_zatrzymanie );
 
 
         kiss_fft( cfg, cx_in, cx_out );
@@ -452,6 +454,9 @@ void color_state( uint32_t *xRGB, unsigned vol, unsigned column = 0, unsigned po
         else
             cout << "\n color_state() error. vol = " << vol << endl;
     }
+
+    xRGB[ (15-vol) * 16 + column ] |= 0x010001 << power;
+
 }
 
 

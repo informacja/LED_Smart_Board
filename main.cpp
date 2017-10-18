@@ -41,8 +41,8 @@ int main()
 
 //    rainbow(fd, xRGB );
 
-    string music = "/home/pi/projects/smart_led_board/audio/MSin44W16-13.WAV";
-    /// data, closer, muse, hero, test, short, seco, moby, bach, MSin44W16-13.WAV
+    string music = "/home/pi/projects/smart_led_board/audio/talk.flac";
+    /// data, closer, muse, hero, test, short, seco, moby, bach, talk, MSin44W16-13.WAV
 
 
     alsa_play(fd, xRGB, music);                 // include/snd_alsa_play.h

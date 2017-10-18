@@ -165,7 +165,7 @@
 	"../include/cGPIO.h"
 	"../include/controlGPIO.h"
 
-1508271330 source:/home/pi/projects/smart_led_board/main.cpp
+1508354013 source:/home/pi/projects/smart_led_board/main.cpp
 	"include/controlGPIO.h"
 	"include/funcGPIO.h"
 	"include/interaction.h"
@@ -867,8 +867,10 @@
 	"sfendian.h"
 	"common.h"
 
-1508271025 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
+1508354725 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
 	"../kiss_fft130/kiss_fft.h"
+	"library.h"
+	"func_matryca.h"
 	"../libsndfile/src/sndfile.h"
 	<alsa/asoundlib.h>
 	<stdio.h>
@@ -902,4 +904,30 @@
 1508061473 source:/home/pi/projects/smart_led_board/kiss_fft130/kissfft.hh
 	<complex>
 	<vector>
+
+1508354519 source:/home/pi/projects/smart_led_board/include/snd_alsa_play.h
+	"../kiss_fft130/kiss_fft.h"
+	"library.h"
+	"func_matryca.h"
+	"../libsndfile/src/sndfile.h"
+	<alsa/asoundlib.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<errno.h>
+	<unistd.h>
+	<sndfile.h>
+	<alsa/asoundlib.h>
+	<sys/time.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<sys/soundcard.h>
+	<AvailabilityMacros.h>
+	<Availability.h>
+	<sndio.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<sys/audioio.h>
+	<windows.h>
+	<mmsystem.h>
 

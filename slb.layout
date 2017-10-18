@@ -1,64 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="include/litery.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1021" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/ws2812b_disp.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1282" topLine="33" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1239" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="src/function.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3319" topLine="33" />
-		</Cursor>
-	</File>
-	<File name="include/controlGPIO.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="376" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include/sound_visualisation.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4169" topLine="143" />
-		</Cursor>
-	</File>
-	<File name="include/library.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1119" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="libsndfile/programs/common.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="30" />
-		</Cursor>
-	</File>
-	<File name="include/interaction.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2847" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="include/dr_audio.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="68553" topLine="1895" />
 		</Cursor>
 	</File>
-	<File name="include/snd_alsa_play.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="11" zoom_2="0">
+	<File name="include/snd_alsa_play.h" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9255" topLine="315" />
-		</Cursor>
-	</File>
-	<File name="include/cGPIO.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="243" topLine="0" />
+			<Cursor1 position="7380" topLine="237" />
 		</Cursor>
 	</File>
 	<File name="include/func_matryca.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
@@ -66,14 +16,84 @@
 			<Cursor1 position="396" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="include/controlGPIO.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="376" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/ws2812b_disp.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1282" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="include/sound_visualisation.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4169" topLine="143" />
+		</Cursor>
+	</File>
+	<File name="include/interaction.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2847" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/controlGPIO.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="389" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="include/time_measure.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2324" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="include/funcGPIO.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6106" topLine="305" />
+		</Cursor>
+	</File>
+	<File name="include/library.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1119" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="include/litery.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1021" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include/dr_flac.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="166035" topLine="4046" />
+		</Cursor>
+	</File>
+	<File name="src/function.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3319" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="libsndfile/programs/common.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="include/cGPIO.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="243" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="include/function.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="68" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/litery.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2988" topLine="85" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1227" topLine="31" />
 		</Cursor>
 	</File>
 	<File name="src/func_matryca.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -84,26 +104,6 @@
 	<File name="src/cGPIO.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="778" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/controlGPIO.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="389" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include/dr_flac.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="166035" topLine="4046" />
-		</Cursor>
-	</File>
-	<File name="src/litery.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2988" topLine="85" />
-		</Cursor>
-	</File>
-	<File name="include/funcGPIO.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6106" topLine="305" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
