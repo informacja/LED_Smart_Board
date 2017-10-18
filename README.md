@@ -7,6 +7,7 @@ Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
   <source src="https://github.com/informacja/Smart_LED_board/blob/master/obj/soundV.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+<p><a href="./obj/soundV.mp4" download="Sound test.mp4"> Open </a> & Download <p> 
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
 
