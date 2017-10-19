@@ -41,7 +41,7 @@ int main()
 
 //    rainbow(fd, xRGB );
 
-    string music = "/home/pi/projects/smart_led_board/audio/talk.flac";
+    string music = "/home/pi/projects/smart_led_board/audio/bach.flac";
     /// data, closer, muse, hero, test, short, seco, moby, bach, talk, MSin44W16-13.WAV
 
 

@@ -9,7 +9,8 @@
 
 #include <alsa/asoundlib.h>
 
-#define WIN 512
+#define WIN 512         // size of raw audio data packet per update LED
+#define VOLUME_COLUMNS 16
 
 
 #include <stdio.h>
@@ -251,36 +252,19 @@ catch_error :
 
 // ----------------------------------------------------------------------------
 
-void draw_colors( int fd, uint32_t *xRGB, kiss_fft_cpx cx_out[WIN], double &maximum, int pass)
+void draw_colors( int fd, uint32_t *xRGB, unsigned vol[VOLUME_COLUMNS])
 {
         memset( xRGB, 0x00, PIXEL_COUNT * 4 );
 
-            for ( int i = 0; i < 16; i++ )
+        for ( int i = 0; i < 16; i++ )
+        {
+            if ( vol[i] > 16 )
             {
-                for ( int x = 0; x < 16; x++ )
-                {
-                    int index = pass*i+x*30;
-
-                    double intensity = sqrt(pow(cx_out[index].r, 2) + pow(cx_out[index].i, 2));;
-
-                    intensity = intensity / maximum * 16;
-
-                    int pos = 0;
-
-                    if ( intensity > 15 )
-                        pos = 15;
-                    else
-                        pos = intensity;
-
-                    color_state( xRGB, pos, x , 1);
-//
-                   // printf( "%f\n", pos);
-
-//                    xRGB[ x*16 + pos ] = 0x010001;
-
-                }
-//                printf("%9.4f\n", intensity);
+                 cout << "\nError: vol["<<i<<"] = " << vol[i] << " ";
+                 vol[i] = 16;
             }
+            color_state( xRGB, vol[i], i, 1 );
+        }
 
         ws2812b_update(fd, xRGB);
         static int count_of_update(0);
@@ -292,13 +276,37 @@ void draw_colors( int fd, uint32_t *xRGB, kiss_fft_cpx cx_out[WIN], double &maxi
 
 // ----------------------------------------------------------------------------
 
+void prepare_raw_data( kiss_fft_cpx *cx_out, unsigned uVolume[VOLUME_COLUMNS] )
+{
+    for( int i = 0; i < VOLUME_COLUMNS; i++ )
+    {
+        float average = 0.0;
+
+        for (int x = 0; x < WIN / VOLUME_COLUMNS; x++)// zaczynamy od 0 ostatni index w tablicy 511
+        {
+            int index = x + i * WIN / VOLUME_COLUMNS;
+            average += sqrt(pow(cx_out[index].r, 2) + pow(cx_out[index].i, 2));
+        }
+
+        average /= WIN / VOLUME_COLUMNS;
+
+
+        float magnitude = (  log10( sqrt(pow(cx_out[0].r, 2) + pow(cx_out[0].i, 2))));
+
+        uVolume[i] = int(average);
+//        uVolume[i] = int(magnitude);
+    }
+}
+
+// ----------------------------------------------------------------------------
+
 void proces_audio_fft( int fd, uint32_t *xRGB, float *data, kiss_fft_cfg &cfg )
 {
- double maxValue = 0;
+// double maxValue = 0;
 
-    short buf[WIN * 2];
-    int nfft = WIN;
-    double intensity = 0;
+//    short buf[WIN * 2];
+//    int nfft = WIN;
+//    double intensity = 0;
 
     kiss_fft_cpx cx_in[WIN];
     kiss_fft_cpx cx_out[WIN];
@@ -318,18 +326,21 @@ void proces_audio_fft( int fd, uint32_t *xRGB, float *data, kiss_fft_cfg &cfg )
 
         kiss_fft( cfg, cx_in, cx_out );
         //Display the value of a position
-        int position = 0;
+//        int position = 0;
 //        intensity = sqrt(pow(cx_out[position].r, 2) + pow(cx_out[position].i, 2));
 //        printf("%9.4f\n", intensity);
+        maximum = 50.0;
 
         double curr = sqrt(pow(cx_out[0].r, 2) + pow(cx_out[0].i, 2));
         maximum = ( curr > maximum ) ? curr : maximum;
 
-        int pass = 1;
-//        for ( ; pass < WIN / 255; pass++ )
-        {
-            draw_colors( fd, xRGB, cx_out, maximum, pass );
-        }
+
+        unsigned uVolume[ VOLUME_COLUMNS ] = { 0 };
+
+        prepare_raw_data( cx_out, uVolume );
+
+        draw_colors( fd, xRGB, uVolume );
+
 //        for (int i = 0; i < WIN; i+=512)
 //        {
 //            double curr = sqrt(pow(cx_out[i].r, 2) + pow(cx_out[i].i, 2));
@@ -443,7 +454,7 @@ alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int
 
 void color_state( uint32_t *xRGB, unsigned vol, unsigned column = 0, unsigned power = 1)
 {
-    for(int i = 0; i <= vol; i++)
+    for(unsigned i = 0; i <= vol; i++)
     {
         if      ( i <= 10 )
             xRGB[ (15-i) * 16 + column ] = 0x000100 << power;
@@ -455,7 +466,7 @@ void color_state( uint32_t *xRGB, unsigned vol, unsigned column = 0, unsigned po
             cout << "\n color_state() error. vol = " << vol << endl;
     }
 
-    xRGB[ (15-vol) * 16 + column ] |= 0x010001 << power;
+//    xRGB[ (15-vol) * 16 + column ] |= 0x010001 << power;
 
 }
 
