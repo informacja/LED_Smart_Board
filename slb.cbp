@@ -49,8 +49,6 @@
 		</Compiler>
 		<Unit filename="include/cGPIO.h" />
 		<Unit filename="include/controlGPIO.h" />
-		<Unit filename="include/dr_audio.h" />
-		<Unit filename="include/dr_flac.h" />
 		<Unit filename="include/funcGPIO.h" />
 		<Unit filename="include/func_matryca.h" />
 		<Unit filename="include/function.h" />
@@ -60,8 +58,8 @@
 		<Unit filename="include/snd_alsa_play.h">
 			<Option compile="1" />
 		</Unit>
-		<Unit filename="include/sound_visualisation.h" />
 		<Unit filename="include/time_measure.h" />
+		<Unit filename="include/window_view.h" />
 		<Unit filename="kiss_fft130/_kiss_fft_guts.h" />
 		<Unit filename="kiss_fft130/kiss_fft.c">
 			<Option compilerVar="CC" />

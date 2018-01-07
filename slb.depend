@@ -165,14 +165,14 @@
 	"../include/cGPIO.h"
 	"../include/controlGPIO.h"
 
-1508436529 source:/home/pi/projects/smart_led_board/main.cpp
+1515277750 source:/home/pi/projects/smart_led_board/main.cpp
 	"include/controlGPIO.h"
 	"include/funcGPIO.h"
 	"include/interaction.h"
 	"include/litery.h"
 	"include/func_matryca.h"
 	"include/function.h"
-	"include/sound_visualisation.h"
+	"include/snd_alsa_play.h"
 	"include/time_measure.h"
 
 1495924056 /home/pi/projects/smart_led_board/include/controlGPIO.h
@@ -867,14 +867,14 @@
 	"sfendian.h"
 	"common.h"
 
-1508439124 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
+1515262447 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
 	"../kiss_fft130/kiss_fft.h"
 	"library.h"
 	"func_matryca.h"
 	"../libsndfile/src/sndfile.h"
 	<alsa/asoundlib.h>
-	<stdio.h>
 	<stdlib.h>
+	<stdio.h>
 	<string.h>
 	<errno.h>
 	<unistd.h>
@@ -892,6 +892,7 @@
 	<sys/audioio.h>
 	<windows.h>
 	<mmsystem.h>
+	"window_view.h"
 
 1508061473 source:/home/pi/projects/smart_led_board/kiss_fft130/kiss_fft.h
 	<stdlib.h>
@@ -905,14 +906,14 @@
 	<complex>
 	<vector>
 
-1508436380 source:/home/pi/projects/smart_led_board/include/snd_alsa_play.h
+1515262447 source:/home/pi/projects/smart_led_board/include/snd_alsa_play.h
 	"../kiss_fft130/kiss_fft.h"
 	"library.h"
 	"func_matryca.h"
 	"../libsndfile/src/sndfile.h"
 	<alsa/asoundlib.h>
-	<stdio.h>
 	<stdlib.h>
+	<stdio.h>
 	<string.h>
 	<errno.h>
 	<unistd.h>
@@ -930,4 +931,8 @@
 	<sys/audioio.h>
 	<windows.h>
 	<mmsystem.h>
+	"window_view.h"
+
+1515363026 /home/pi/projects/smart_led_board/include/window_view.h
+	<fstream>
 

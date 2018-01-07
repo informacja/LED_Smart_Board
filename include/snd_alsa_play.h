@@ -9,12 +9,8 @@
 
 #include <alsa/asoundlib.h>
 
-#define WIN 512         // size of raw audio data packet per update LED
-#define VOLUME_COLUMNS 16
-
-
+#include <stdlib.h>     /* abs */
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 
@@ -61,21 +57,26 @@
 #endif
 
 #define	SIGNED_SIZEOF(x)	((int) sizeof (x))
-#define	BUFFER_LEN			(2048)
+#define	BUFFER_LEN			(2048)              // window is half of this
+
+static float max_peak = 0;                     // największe wychylenie amplitudy(czyli najgłośniejszy poziom), globalna bo nie chciało mi się przez parametr
+
+#include "window_view.h"    // FFT, colors and fun
 
 
 static snd_pcm_t * alsa_open (int channels, unsigned srate, int realtime) ;
-static int alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int frames, int channels, kiss_fft_cfg &cfg );
+static int alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int frames, int channels, kiss_fft_cfg &cfg, unsigned fq_index[COLUMNS] );
 void color_state( uint32_t *xRGB, unsigned vol, unsigned column, unsigned power );
 
+// ----------------------------------------------------------------------------
 
 static void
 alsa_play ( int fd, uint32_t *xRGB, string music )
 {
-    static float buffer [BUFFER_LEN] ;
+    static float buffer [BUFFER_LEN];
 	SNDFILE *sndfile ;
-	SF_INFO sfinfo ;snd_pcm_t * alsa_dev ;
-	int		k, readcount, subformat ;
+	SF_INFO sfinfo ;snd_pcm_t * alsa_dev;
+	int		k, readcount, subformat;
 
 	for (k = 1 ; k < 2 ; k++)
 	{	memset (&sfinfo, 0, sizeof (sfinfo)) ;
@@ -97,7 +98,23 @@ alsa_play ( int fd, uint32_t *xRGB, string music )
 
 		subformat = sfinfo.format & SF_FORMAT_SUBMASK ;
 
-        kiss_fft_cfg cfg = kiss_fft_alloc(WIN, 0, 0, 0); // init FFT
+            kiss_fft_cfg cfg = kiss_fft_alloc(WIN, 0, 0, 0); // init FFT
+
+            // searching for biggest peak
+            while( readcount = sf_read_float (sndfile, buffer, BUFFER_LEN) )
+            {
+            	for ( int i = 0; i < readcount; i++)
+                    if ( buffer[i] > fabs(max_peak))
+                        max_peak = fabs(buffer[i]);
+            }
+            cout << "max_peak: " << max_peak << endl << endl;
+
+            if ( sf_seek(sndfile, 0, SEEK_SET) == -1 )  // set pointer to begin of file
+                cout << "Error: Can't rewind sndfile\n";
+
+            unsigned fq_index[COLUMNS] = { 0 };
+            calc_frquency_index( fq_index, sfinfo.samplerate );
+
 
 		if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE)
 		{	double	scale ;
@@ -112,13 +129,16 @@ alsa_play ( int fd, uint32_t *xRGB, string music )
 			while ((readcount = sf_read_float (sndfile, buffer, BUFFER_LEN)))
 			{	for (m = 0 ; m < readcount ; m++)
 					buffer [m] *= scale ;
-				alsa_write_float ( fd, xRGB, alsa_dev, buffer, BUFFER_LEN / sfinfo.channels, sfinfo.channels, cfg);
+				alsa_write_float ( fd, xRGB, alsa_dev, buffer, BUFFER_LEN / sfinfo.channels, sfinfo.channels, cfg, fq_index);
 				} ;
 			}
-		else
-		{	while ((readcount = sf_read_float (sndfile, buffer, BUFFER_LEN)))
-				alsa_write_float ( fd, xRGB,alsa_dev, buffer, BUFFER_LEN / sfinfo.channels, sfinfo.channels, cfg);
-			} ;
+		else // normal way
+		{
+            while ((readcount = sf_read_float (sndfile, buffer, BUFFER_LEN)))
+           			alsa_write_float ( fd, xRGB,alsa_dev, buffer, BUFFER_LEN / sfinfo.channels, sfinfo.channels, cfg, fq_index);
+        }
+
+		kiss_fft_free(cfg);     // tak naprawdę to jest zwykłe free()
 
 		snd_pcm_drain (alsa_dev) ;
 		snd_pcm_close (alsa_dev) ;
@@ -129,7 +149,7 @@ alsa_play ( int fd, uint32_t *xRGB, string music )
 	return ;
 } /* alsa_play */
 
-
+// ----------------------------------------------------------------------------
 
 static snd_pcm_t *
 alsa_open (int channels, unsigned samplerate, int realtime)
@@ -250,122 +270,12 @@ catch_error :
 	return alsa_dev ;
 } /* alsa_open */
 
-// ----------------------------------------------------------------------------
-
-void draw_colors( int fd, uint32_t *xRGB, unsigned vol[VOLUME_COLUMNS])
-{
-        memset( xRGB, 0x00, PIXEL_COUNT * 4 );
-
-        for ( int i = 0; i < 16; i++ )
-        {
-            if ( vol[i] > 16 )
-            {
-                 cout << "\nError: vol["<<i<<"] = " << vol[i] << " ";
-                 vol[i] = 16;
-            }
-            color_state( xRGB, vol[i], i, 1 );
-        }
-
-        ws2812b_update(fd, xRGB);
-        static int count_of_update(0);
-        count_of_update++;
-//        printf("%f",count_of_update);
-        cout << count_of_update << endl;
-
-}
-
-// ----------------------------------------------------------------------------
-
-void prepare_raw_data( kiss_fft_cpx *cx_out, unsigned uVolume[VOLUME_COLUMNS] )
-{
-    for( int i = 0; i < VOLUME_COLUMNS; i++ )
-    {
-        float average = 0.0;
-
-        for (int x = 0; x < WIN / VOLUME_COLUMNS; x++)// zaczynamy od 0 ostatni index w tablicy 511
-        {
-            int index = x + i * WIN / VOLUME_COLUMNS;
-            average += sqrt(pow(cx_out[index].r, 2) + pow(cx_out[index].i, 2));
-        }
-
-        average /= WIN / VOLUME_COLUMNS;
-
-
-        float magnitude = (  log10( sqrt(pow(cx_out[0].r, 2) + pow(cx_out[0].i, 2))));
-
-        uVolume[i] = int(average);
-//        uVolume[i] = int(magnitude);
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-void proces_audio_fft( int fd, uint32_t *xRGB, float *data, kiss_fft_cfg &cfg )
-{
-// double maxValue = 0;
-
-//    short buf[WIN * 2];
-//    int nfft = WIN;
-//    double intensity = 0;
-
-    kiss_fft_cpx cx_in[WIN];
-    kiss_fft_cpx cx_out[WIN];
-    short *sh;
-
-    static double maximum(20.0);
-    {
-        for (int i = 0;i<WIN;i++) {
-            sh = (short *)&data[i * 2];
-            cx_in[i].r = (float) (((double)*sh) / 32768.0);
-            cx_in[i].i = 0.0;
-        }
-
-
-//    signal( SIGINT, Awaryjne_zatrzymanie );
-
-
-        kiss_fft( cfg, cx_in, cx_out );
-        //Display the value of a position
-//        int position = 0;
-//        intensity = sqrt(pow(cx_out[position].r, 2) + pow(cx_out[position].i, 2));
-//        printf("%9.4f\n", intensity);
-        maximum = 50.0;
-
-        double curr = sqrt(pow(cx_out[0].r, 2) + pow(cx_out[0].i, 2));
-        maximum = ( curr > maximum ) ? curr : maximum;
-
-
-        unsigned uVolume[ VOLUME_COLUMNS ] = { 0 };
-
-        prepare_raw_data( cx_out, uVolume );
-
-        draw_colors( fd, xRGB, uVolume );
-
-//        for (int i = 0; i < WIN; i+=512)
-//        {
-//            double curr = sqrt(pow(cx_out[i].r, 2) + pow(cx_out[i].i, 2));
-//            maximum = ( curr > maximum ) ? curr : maximum;
-//        }
-
-        //Display all values
-
-        for (int i = 0;i<WIN;i++) {
-//            printf("Joe: cx_out[i].r:%f\n", cx_out[i].r);
-//            printf("Joe: cx_out[i].i:%f\n", cx_out[i].i);
-//            intensity = sqrt(pow(cx_out[i].r,2) + pow(cx_out[i].i,2));
-//            printf("%d - %9.4f\n", i, intensity);
-        }
-    }
-
-//    printf("Maximum: %9.4f\n", maximum);
-
-}
-
 // ---------------------------------------------------------------------------------
 
 static int
-alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int frames, int channels, kiss_fft_cfg &cfg )
-{	static	int epipe_count = 0 ;
+alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int frames, int channels, kiss_fft_cfg &cfg, unsigned fq_index[COLUMNS] )
+{
+    static	int epipe_count = 0 ;
 
 	int total = 0 ;
 	int retval ;
@@ -378,7 +288,7 @@ alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int
         retval = snd_pcm_writei (alsa_dev, data + total * channels, frames - total) ;
 //        printf( "%d\n", total);
 
-        proces_audio_fft( fd, xRGB, data, cfg );
+        proces_audio_fft( fd, xRGB, data, cfg, fq_index );    // added
 
 		if (retval >= 0)
 		{	total += retval ;
@@ -448,27 +358,7 @@ alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int
 	return total ;
 } /* alsa_write_float */
 
-
 // ----------------------------------------------------------------------------
-
-
-void color_state( uint32_t *xRGB, unsigned vol, unsigned column = 0, unsigned power = 1)
-{
-    for(unsigned i = 0; i <= vol; i++)
-    {
-        if      ( i <= 10 )
-            xRGB[ (15-i) * 16 + column ] = 0x000100 << power;
-        else if ( i <= 14 )
-            xRGB[ (16-i) * 16 + column ] = 0x010100 << power;
-        else if ( i <= 16 )
-            xRGB[ (16-i) * 16 + column ] = 0x010000 << power;
-        else
-            cout << "\n color_state() error. vol = " << vol << endl;
-    }
-
-//    xRGB[ (15-vol) * 16 + column ] |= 0x010001 << power;
-
-}
 
 
 #endif // SND_ALSA_PLAY_INCLUDED

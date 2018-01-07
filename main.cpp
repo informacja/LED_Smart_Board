@@ -2,10 +2,11 @@
 #include "include/controlGPIO.h"        // 8 małych LED'ów i 4 przyciski
 #include "include/funcGPIO.h"           // funkcje do powyższych
 #include "include/interaction.h"        // manual set led by buttons(GPIO)
-#include "include/litery.h"             // Czcionka 5x4 pixele
+#include "include/litery.h"             // Czcionka 5x4 pixeli
 #include "include/func_matryca.h"       // Logo ZST, zegar
 #include "include/function.h"           // use GPIO & SPI
-#include "include/sound_visualisation.h"
+#include "include/snd_alsa_play.h"
+//#include "include/sound_visualisation.h"
 #include "include/time_measure.h"
 
 using namespace std;
@@ -41,9 +42,8 @@ int main()
 
 //    rainbow(fd, xRGB );
 
-    string music = "/home/pi/projects/smart_led_board/audio/bach.flac";
-    /// data, closer, muse, hero, test, short, seco, moby, bach, talk, MSin44W16-13.WAV
-
+    string music = "/home/pi/projects/smart_led_board/audio/closer.flac";
+    /// data.flac, closer, muse, hero, test, short, seco, moby, bach, talk, MSin.wav, 32, 40, 500, 2000, 8100, 13954, 16000,
 
     alsa_play(fd, xRGB, music);                 // include/snd_alsa_play.h
 
@@ -81,8 +81,6 @@ break;
     memset( xRGB, 0x0, PIXEL_COUNT * sizeof(uint32_t) );
     printf("ws2812b_last_update: %d\n", ws2812b_update(fd, xRGB));
     close(fd);
-
-    cout << "\nOwocnego kodowania ;)\n";
 
     return 0;
 }
