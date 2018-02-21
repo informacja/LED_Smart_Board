@@ -165,7 +165,14 @@
 	"../include/cGPIO.h"
 	"../include/controlGPIO.h"
 
-1515277750 source:/home/pi/projects/smart_led_board/main.cpp
+1519174635 source:/home/pi/projects/smart_led_board/main.cpp
+	<thread>
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<functional>
+	<iterator>
 	"include/controlGPIO.h"
 	"include/funcGPIO.h"
 	"include/interaction.h"
@@ -174,6 +181,7 @@
 	"include/function.h"
 	"include/snd_alsa_play.h"
 	"include/time_measure.h"
+	"include/random_music.h"
 
 1495924056 /home/pi/projects/smart_led_board/include/controlGPIO.h
 	"cGPIO.h"
@@ -181,7 +189,7 @@
 1494762061 /home/pi/projects/smart_led_board/include/cGPIO.h
 	"library.h"
 
-1500312245 /home/pi/projects/smart_led_board/include/library.h
+1519121819 /home/pi/projects/smart_led_board/include/library.h
 	<iostream>
 	<vector>
 	<unistd.h>
@@ -201,10 +209,13 @@
 	<signal.h>
 	<time.h>
 	<ncurses.h>
+	<dirent.h>
+	<random>
 
-1500407276 /home/pi/projects/smart_led_board/include/funcGPIO.h
+1519175956 /home/pi/projects/smart_led_board/include/funcGPIO.h
 	"../include/cGPIO.h"
 	"../include/controlGPIO.h"
+	"../src/ws2812b_disp.cpp"
 
 1500308808 /home/pi/projects/smart_led_board/include/interaction.h
 	"func_matryca.h"
@@ -867,12 +878,13 @@
 	"sfendian.h"
 	"common.h"
 
-1515262447 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
+1519161902 /home/pi/projects/smart_led_board/include/snd_alsa_play.h
 	"../kiss_fft130/kiss_fft.h"
 	"library.h"
 	"func_matryca.h"
 	"../libsndfile/src/sndfile.h"
 	<alsa/asoundlib.h>
+	<atomic>
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -906,12 +918,13 @@
 	<complex>
 	<vector>
 
-1515262447 source:/home/pi/projects/smart_led_board/include/snd_alsa_play.h
+1519161902 source:/home/pi/projects/smart_led_board/include/snd_alsa_play.h
 	"../kiss_fft130/kiss_fft.h"
 	"library.h"
 	"func_matryca.h"
 	"../libsndfile/src/sndfile.h"
 	<alsa/asoundlib.h>
+	<atomic>
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -933,6 +946,13 @@
 	<mmsystem.h>
 	"window_view.h"
 
-1515363026 /home/pi/projects/smart_led_board/include/window_view.h
+1519175892 /home/pi/projects/smart_led_board/include/window_view.h
 	<fstream>
+
+1518914234 source:/home/pi/projects/smart_led_board/include/funcGPIO.h
+	"../include/cGPIO.h"
+	"../include/controlGPIO.h"
+
+1518909109 /home/pi/projects/smart_led_board/include/random_music.h
+	"library.h"
 

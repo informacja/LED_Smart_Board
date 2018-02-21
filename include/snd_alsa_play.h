@@ -8,11 +8,14 @@
 #include "../libsndfile/src/sndfile.h"
 
 #include <alsa/asoundlib.h>
+#include <atomic>
 
 #include <stdlib.h>     /* abs */
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+
+
 
 #if HAVE_UNISTD_H
 #include <unistd.h>
@@ -63,6 +66,7 @@ static float max_peak = 0;                     // największe wychylenie amplitu
 
 #include "window_view.h"    // FFT, colors and fun
 
+extern bool bMain_dziala;
 
 static snd_pcm_t * alsa_open (int channels, unsigned srate, int realtime) ;
 static int alsa_write_float ( int fd, uint32_t *xRGB, snd_pcm_t *alsa_dev, float *data, int frames, int channels, kiss_fft_cfg &cfg, unsigned fq_index[COLUMNS] );
@@ -70,8 +74,8 @@ void color_state( uint32_t *xRGB, unsigned vol, unsigned column, unsigned power 
 
 // ----------------------------------------------------------------------------
 
-static void
-alsa_play ( int fd, uint32_t *xRGB, string music )
+void
+alsa_play ( config* music, string path, int fd, uint32_t *xRGB )
 {
     static float buffer [BUFFER_LEN];
 	SNDFILE *sndfile ;
@@ -79,10 +83,10 @@ alsa_play ( int fd, uint32_t *xRGB, string music )
 	int		k, readcount, subformat;
 
 	for (k = 1 ; k < 2 ; k++)
-	{	memset (&sfinfo, 0, sizeof (sfinfo)) ;
+	{	memset (&sfinfo, 0, sizeof (sfinfo));
 
-		printf ("Playing %s\n", music.c_str() ) ;
-		if (! (sndfile = sf_open (music.c_str(), SFM_READ, &sfinfo)))
+		printf ("Playing %s\n", path.c_str() ) ;
+		if (! (sndfile = sf_open (path.c_str(), SFM_READ, &sfinfo)))
 		{	puts (sf_strerror (NULL)) ;
 			continue ;
 			} ;
@@ -135,8 +139,21 @@ alsa_play ( int fd, uint32_t *xRGB, string music )
 		else // normal way
 		{
             while ((readcount = sf_read_float (sndfile, buffer, BUFFER_LEN)))
+                if((*music).play)
            			alsa_write_float ( fd, xRGB,alsa_dev, buffer, BUFFER_LEN / sfinfo.channels, sfinfo.channels, cfg, fq_index);
+                else
+                {
+                    memset( xRGB, 0x0, PIXEL_COUNT * sizeof(uint32_t) );
+                    ws2812b_update(fd, xRGB);
+                    while ( !(*music).play )
+                        usleep(10e4);
+                }
         }
+
+        memset( xRGB, 0x0, PIXEL_COUNT * sizeof(uint32_t) );
+        printf("ws2812b_last_update_from_alsa_play(): %d\n", ws2812b_update(fd, xRGB));
+        printf ("Playing %s\n", path.c_str() ) ;
+        (*music).play = false;
 
 		kiss_fft_free(cfg);     // tak naprawdę to jest zwykłe free()
 

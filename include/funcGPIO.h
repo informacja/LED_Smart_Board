@@ -3,6 +3,10 @@
 
 #include "../include/cGPIO.h"
 #include "../include/controlGPIO.h"
+#include "../src/ws2812b_disp.cpp"
+
+
+ struct config;
 
 inline void ready_blink(vector<cGPIO*> *GPIO)
 {
@@ -154,16 +158,37 @@ inline void ready_blink(vector<cGPIO*> *GPIO)
 
 //========================================================================
 
-inline bool exit( vector<cGPIO*> *GPIO, bool two_buttons )
+void show_press_progres( int counter, vector<cGPIO*> *GPIO )
+{
+    for( int i = 4; i < 12; i++ )
+    {
+        Ustaw_GPIO( GPIO, i, true);
+    }
+
+    if ( counter )
+    {
+        printf("%d\n",counter);
+        double percent = 8 * counter/100.0;
+
+
+        for( int i = 4; i < (int)percent+4; i++ )
+            {
+                 Ustaw_GPIO( GPIO, i, false);
+
+            }
+//            usleep( 10e4 );
+    }
+
+}
+
+bool exit( vector<cGPIO*> *GPIO, unsigned points, bool two_buttons )
 {
     // button pressed = false
     // relased button = true
-    static unsigned counter;
+    static unsigned counter;    // 0-100 in percent
     static bool last_state[ 4 ] = { true, true, true, true };
     static int pressed_buttons(0);
     static int licznik(0);
-
-
 
 //    for( int i = 0; i < 4; i++ )
     {
@@ -192,6 +217,7 @@ inline bool exit( vector<cGPIO*> *GPIO, bool two_buttons )
                     else
                         counter = 0;
                 }
+                show_press_progres( counter, GPIO );
             }
             else
             {
@@ -200,7 +226,7 @@ inline bool exit( vector<cGPIO*> *GPIO, bool two_buttons )
 
     // Cześć, poniższe 2 linie to debug, spokojnie możesz je zakomentować, miłego kodowania ;)
 //            if ( i == 3 )
-                cout << "time: " << counter << " Buttons_pressed: " << pressed_buttons << endl;
+//                cout << "time: " << counter << " Buttons_pressed: " << pressed_buttons << endl;
 
         }
 
@@ -208,30 +234,32 @@ inline bool exit( vector<cGPIO*> *GPIO, bool two_buttons )
         {
             for( int i = 4; i < 12; i++ )
             {
-                 Ustaw_GPIO( GPIO, i, true);
-
-            }
-            usleep( 10e4 );
-
-            for( int i = 4; i < 12; i++ )
-            {
-                 Ustaw_GPIO( GPIO, i, false);
-
-            }
-            usleep( 10e4 );
-
-            for( int i = 4; i < 12; i++ )
-            {
                 Ustaw_GPIO( GPIO, 15-i, true);
-                usleep( 10e4 );
+                usleep( 10e4-10e3*(i-4)/4 );
             }
+            usleep( 10e4 );
+
+//            for( int i = 0; i < 4; i++ )
+//            {
+//                 Ustaw_GPIO( GPIO, 8-i, false);
+//                 Ustaw_GPIO( GPIO, 8+i, false);
+//                 usleep( 10e4 - 10e3*(i+1)*2 );
+//            }
+//            usleep( 10e4  );
+//
+//            for( int i = 0; i < 4; i++ )
+//            {
+//                 Ustaw_GPIO( GPIO, 8-i, true);
+//                 Ustaw_GPIO( GPIO, 8+i, true);
+//                 usleep( 10e4 );
+//            }
 
             return true;
         }
 
         licznik ++;
 
-        if ( 100 <= licznik )
+        if ( points <= licznik )
         {
             cout <<                "[" << (*GPIO)[ 3 ]->Get() << "]" <<
                                   " [" << (*GPIO)[ 2 ]->Get() << "]" <<
@@ -239,10 +267,33 @@ inline bool exit( vector<cGPIO*> *GPIO, bool two_buttons )
                                   " [" << (*GPIO)[ 0 ]->Get() << "]" << endl;
             licznik = 0;
         }
-
     }
 
+    usleep(10e3);
+
     return false;
+}
+
+void wyjdz_z_programu_przez_przyciski(vector<cGPIO*> GPIO, bool two_buttons, config* music, int fd, uint32_t *xRGB)
+{
+    (*music).play = false;
+
+    bool dziala = true;
+
+    while ( dziala )
+    {
+        if ( exit( &GPIO, 10, true) )
+            dziala = false;
+    }
+    memset( xRGB, 0x0, PIXEL_COUNT * sizeof(uint32_t) );
+    ws2812b_update(fd, xRGB);// dwa razy dla pewnosci, ze zgasnie
+    Odeksportuj_GPIO( &GPIO );
+    Niszcz_GPIO( &GPIO );
+    usleep(10e4*4);
+    memset( xRGB, 0x0, PIXEL_COUNT * sizeof(uint32_t) );
+    printf("ws2812b_last_update_from_buttons: %d\n", ws2812b_update(fd, xRGB));
+    close(fd);
+    exit(0);
 }
 
 //========================================================================

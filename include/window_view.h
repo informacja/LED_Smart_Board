@@ -9,7 +9,7 @@
 void magnitude2dB_scale( kiss_fft_cpx *cx_out, unsigned uVolume[COLUMNS], unsigned freq_index[COLUMNS] );
 void draw_colors( int fd, uint32_t *xRGB, unsigned vol[COLUMNS]);
 void color_state( uint32_t *xRGB, unsigned vol, unsigned column = 0, unsigned power = 1);
-void show_top_last_peak( int fd, uint32_t *xRGB, unsigned vol[COLUMNS], unsigned fall_down_speed );
+void show_top_dot_last_peak( int fd, uint32_t *xRGB, unsigned vol[COLUMNS], unsigned fall_down_speed );
 void filtr_average_beside_freq_by_peak( int column_nr, unsigned fft_index, kiss_fft_cpx *cx_out, double &magnitude );
 
 // ----------------------------------------------------------------------------
@@ -176,9 +176,11 @@ zakładka 50% ???
 
         draw_colors( fd, xRGB, uVolume );
 
-        show_top_last_peak( fd, xRGB, uVolume, 7 ); // prefered range: 5 - 15
+        show_top_dot_last_peak( fd, xRGB, uVolume, 7 ); // prefered range: 5 - 15
 
+#ifndef update_LED_in_main
         ws2812b_update(fd, xRGB);
+#endif // update_LED_in_main
 
         static int count_of_update(0);   count_of_update++;  printf( "%d\n", count_of_update );
 
@@ -190,7 +192,6 @@ zakładka 50% ???
 
 void magnitude2dB_scale( kiss_fft_cpx *cx_out, unsigned uVolume[COLUMNS], unsigned freq[COLUMNS]  )
 {
-
 /*
     ustawia w uVolume 16 słupków głośności danej częstotliwości
 */
@@ -296,50 +297,6 @@ void magnitude2dB_scale( kiss_fft_cpx *cx_out, unsigned uVolume[COLUMNS], unsign
             cout << "\n\'amplitude\' = " << amplitude << " should be < 0 \n";
         }
     }
-
-//    cout << amplitude;
-//
-//    int i;
-//    cin >> i;
-
-
-//    float maxRange = 0, minRange = 0;     // we will find it, keep calm and scroll down
-//
-//    for( int i = 0; i < COLUMNS; i++ )
-//    {
-//        float average = 0;
-//        average = sqrt(pow(cx_out[0].r, 2) + pow(cx_out[0].i, 2));
-//
-//        maxRange = minRange = average;  // first value to comparison
-//
-//        for (int x = 1; x < WIN / COLUMNS; x++)// zaczynamy od 0 ostatni index w tablicy 511
-//        {
-//            int index = x + i * WIN / COLUMNS;
-//
-//            float buff = sqrt(pow(cx_out[index].r, 2) + pow(cx_out[index].i, 2));
-//
-//            average += buff;
-//
-//            if ( maxRange < buff ) maxRange = buff ;
-//            if ( minRange > buff ) minRange = buff ;
-//
-////            average +=  10* (  log10( sqrt(pow(cx_out[index].r, 2) + pow(cx_out[index].i, 2))));;
-//
-//        }
-//
-//        average /= WIN / COLUMNS;
-//
-////        maxRange = 20;
-////        minRange = 3;
-////        average = (  sqrt(pow(cx_out[511].r, 2) + pow(cx_out[511].i, 2)));;
-//
-//        int iMin = 0;
-//        int iMax = 15;      // summary 16 LED per column
-//
-//        uVolume[i] = scaleBetween(average, 00, 30, minRange, maxRange);
-//
-////        cout << "\nAverage: " << average << endl;
-//    }
 }
 
 // ----------------------------------------------------------------------------
@@ -409,7 +366,7 @@ void filtr_average_beside_freq_by_peak( int n, unsigned n_fq, kiss_fft_cpx *cx_o
 
 // ----------------------------------------------------------------------------
 
-void show_top_last_peak( int fd, uint32_t *xRGB, unsigned vol[COLUMNS], unsigned speed)
+void show_top_dot_last_peak( int fd, uint32_t *xRGB, unsigned vol[COLUMNS], unsigned speed)
 {
 
     static unsigned last_vol[COLUMNS];

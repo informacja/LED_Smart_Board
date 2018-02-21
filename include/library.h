@@ -30,7 +30,8 @@ using namespace std;
 // Nie ma strumieniaIO w oryginalnym programie
 #include <time.h>
 #include <ncurses.h> //obsługa klawiatury
-
+#include <dirent.h>
+#include <random>
 
 
 // czas bitu H to calkowita wielokrotnosc 300ns
@@ -109,6 +110,13 @@ typedef enum
     Grey    = 0x212121,
     Blue_Grey= 0x263238
 } ;
+
+
+
+struct config {
+    bool play = false;
+    bool reset = false;
+};
 
 //static uint32_t xRGB [PIXEL_COUNT];
 
