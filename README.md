@@ -4,7 +4,7 @@ Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
 
 <img src="./obj/3.webp" href="" alt="png"/>
 
-<img src="./obj/4.jpg" href="" alt="png"/>
+<img src="./obj/2.jpg" href="" alt="png"/>
 
 
 <video width="320" height="240" controls>
