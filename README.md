@@ -4,6 +4,9 @@ Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
 
 <img src="./obj/3.webp" href="" alt="png"/>
 
+<img src="./obj/4.jpg" href="" alt="png"/>
+
+
 <video width="320" height="240" controls>
   <source src="https://github.com/informacja/Smart_LED_board/blob/master/obj/soundV.mp4" type="video/mp4">
 Your browser does not support the video tag.
