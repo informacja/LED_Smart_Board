@@ -4,6 +4,7 @@
 
 <img src="./obj/3.webp" href="" alt="png"/>
 
+By Sławomir Franczyk
 <img src="./obj/2.jpg" href="" alt="png"/>
 
 
