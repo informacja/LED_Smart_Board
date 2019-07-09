@@ -7,6 +7,8 @@
 <img src="./obj/2.jpg" href="" alt="png"/>
 
 
+<img src="./obj/clock.gif" href="" alt="gif"/>
+
 <video width="320" height="240" controls>
   <source src="https://github.com/informacja/Smart_LED_board/blob/master/obj/soundV.mp4" type="video/mp4">
 Your browser does not support the video tag.
