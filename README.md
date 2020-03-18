@@ -18,7 +18,7 @@ Your browser does not support the video tag.
 
 <img src="./obj/test.gif" href="" alt="gif"/>
 
-# Freq linear incrementation, looks non linear (ToDo: Bark Scale)
+# Signal freq linear incrementation[time domain], spectrum looks non linear[freq domain] (ToDo: Bark Scale)
 <img src="./obj/up.gif" href="" alt="gif"/>
 
 
