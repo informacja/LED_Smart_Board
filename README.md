@@ -21,6 +21,8 @@ Your browser does not support the video tag.
 # Signal freq linear incrementation[time domain], spectrum looks non linear[freq domain] (ToDo: Bark Scale)
 <img src="./obj/up.gif" href="" alt="gif"/>
 
+# Audio playing response 
+<img src="./obj/spectrum.gif" href="" alt="gif"/>
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
 
