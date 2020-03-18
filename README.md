@@ -19,7 +19,7 @@ Your browser does not support the video tag.
 <img src="./obj/test.gif" href="" alt="gif"/>
 
 # Freq linear incrementation, looks non linear (ToDo: Bark Scale)
-<img src="./obj/up.gifv" href="" alt="gif"/>
+<img src="./obj/up.gif" href="" alt="gif"/>
 
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
