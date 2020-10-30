@@ -4,6 +4,14 @@
  ![lsb](obj/lsb.png)
 ](https://drive.google.com/file/d/0B1YxDP48xFw6Vi02YWFwMk1Ba2M/view)
 
+Współtworzący projekt:
+> Paweł Piątek - Opiekun
+> Sławomir Franczyk - Pomysłodawca
+> Kasia Lachut
+> Przemysław Kuca
+> Bartłomiej Mirek
+> Piotr Wawryka
+
 ##### Osiągnięcia
 [*Elektronika by żyło się łatwiej* - Politechnika Śląska](obj/ps.pdf)
 
