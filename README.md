@@ -1,7 +1,15 @@
-# Smart LED Board <img href="" src="https://img.shields.io/pypi/status/Django.svg"/>
-###### Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
+<!-- # Smart LED Board <img href="" src="https://img.shields.io/pypi/status/Django.svg"/> -->
 
-![lsb](docs/lsb.png)
+[
+ ![lsb](obj/lsb.png)
+](https://drive.google.com/file/d/0B1YxDP48xFw6Vi02YWFwMk1Ba2M/view)
+
+##### Osiągnięcia
+[*Elektronika by żyło się łatwiej* - Politechnika Śląska](obj/ps.pdf)
+
+<!-- ![lsb](obj/polsla.jpg) -->
+
+###### Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
 
 <img src="./obj/1.webp" href="" alt="webp"/>
 
@@ -61,3 +69,5 @@ Add to "Compiler" </p>
 ```text
 include
 ```
+
+
