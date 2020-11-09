@@ -4,7 +4,7 @@
  ![lsb](obj/lsb.png)
 ](https://drive.google.com/file/d/0B1YxDP48xFw6Vi02YWFwMk1Ba2M/view)
 
-> *Współtworzący projekt*
+> *Autorzy współtworzący projekt*
 > 
 > Paweł Piątek - Opiekun · 
 > Sławomir Franczyk - Pomysłodawca · 
