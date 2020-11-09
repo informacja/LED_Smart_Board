@@ -6,8 +6,8 @@
 
 > *Autorzy współtworzący projekt*
 > 
-> Paweł Piątek - Opiekun · 
-> Sławomir Franczyk - Pomysłodawca · 
+> Paweł Piątek - *Opiekun* · 
+> Sławomir Franczyk - *Pomysłodawca* · 
 > Kasia Lachut · 
 > Przemysław Kuca  · 
 > Bartłomiej Mirek · 
