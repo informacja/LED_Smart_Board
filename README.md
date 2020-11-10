@@ -8,6 +8,7 @@
 > 
 > Paweł Piątek - *Opiekun* · 
 > Sławomir Franczyk - *Pomysłodawca* · 
+> Daniel Król - *Wsparcie merytoryczne* ·
 > Kasia Lachut · 
 > Przemysław Kuca  · 
 > Bartłomiej Mirek · 
