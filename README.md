@@ -11,6 +11,7 @@
 > Kasia Lachut · 
 > Przemysław Kuca  · 
 > Bartłomiej Mirek · 
+> Dominik Kras ·
 > Piotr Wawryka 
 
 ##### Osiągnięcia
