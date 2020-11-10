@@ -16,15 +16,16 @@
 ##### Osiągnięcia
 [*Elektronika by żyło się łatwiej* - Politechnika Śląska](obj/ps.pdf)
 
-<!-- ![lsb](obj/polsla.jpg) -->
 
-###### Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
+
+##### Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
 
 <img src="./obj/1.webp" href="" alt="webp"/>
 
 [
   ![Nagranie](./obj/vimeoMatryca.png)
 ](https://vimeo.com/257765594)
+
 
 [
   ![pinknoise](./obj/pinknoise.gif)
@@ -42,11 +43,13 @@ By Sławomir Franczyk
 
 <img src="./obj/test.gif" href="" alt="gif"/>
 
-# Signal freq linear incrementation[time domain], spectrum looks non linear[freq domain] (ToDo: Bark Scale)
+<!-- ![lsb](obj/polsla.jpg) -->
+## Audio playing response 
+<img src="./obj/spectrum.gif" href="" alt="gif"/>
+
+## Signal freq linear incrementation[time domain], spectrum looks non linear[freq domain] (ToDo: Bark Scale)
 <img src="./obj/up.gif" href="" alt="gif"/>
 
-# Audio playing response 
-<img src="./obj/spectrum.gif" href="" alt="gif"/>
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
 
