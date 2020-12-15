@@ -19,7 +19,6 @@
 [*Elektronika by żyło się łatwiej* - Politechnika Śląska](obj/ps.pdf)
 
 
-
 ##### Prototyp obsługi matrycy LED 16x16 przez Raspberry Pi 3+
 
 <img src="./obj/1.webp" href="" alt="webp"/>
@@ -41,8 +40,6 @@ By Sławomir Franczyk
 <img src="./obj/clock.gif" href="" alt="gif"/>
 
 
-<p><a href="./obj/soundV.mp4" download="Sound test.mp4">   Download  soundV.mp4</a><p> 
-
 <img src="./obj/test.gif" href="" alt="gif"/>
 
 <!-- ![lsb](obj/polsla.jpg) -->
@@ -52,6 +49,7 @@ By Sławomir Franczyk
 ## Signal freq linear incrementation[time domain], spectrum looks non linear[freq domain] (ToDo: Bark Scale)
 <img src="./obj/up.gif" href="" alt="gif"/>
 
+<p><a href="./obj/soundV.mp4" download="Sound test.mp4">   Download  soundV.mp4</a><p> 
 
 <h2>Simple tutorial how to use command line git on RPi (configured):</h2>
 
