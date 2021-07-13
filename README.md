@@ -60,9 +60,11 @@ By Sławomir Franczyk
   git push 
 ```
 >RPI console
+>
 >![lsb](obj/putty_2017-07-15_22-23-07.png)
  
 >Xming Code::Blocks runed on Windows
+>
 >![lsb](obj/Xming_2017-09-24_12-31-57.png)
 
  
