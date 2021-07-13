@@ -60,6 +60,8 @@ By Sławomir Franczyk
   git push 
 ```
 
+ ![lsb](obj/putty_2017-07-15_22-23-07.png)
+ 
 <h2> How to configure Code::Blocks</h2>
 <p><i> Project->Build options...->Linker settings</i><br>
 Add to "Other linker options:"</p>
