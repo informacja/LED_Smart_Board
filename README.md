@@ -63,7 +63,7 @@ By Sławomir Franczyk
 >![lsb](obj/putty_2017-07-15_22-23-07.png)
  
 >Xming Code::Blocks runed on Windows
->![lsb](Xming_2017-09-24_12-31-57.png)
+>![lsb](obj/Xming_2017-09-24_12-31-57.png)
 
  
 <h2> How to configure Code::Blocks</h2>
