@@ -59,8 +59,12 @@ By Sławomir Franczyk
   git pull # download and apply changes on local repository
   git push 
 ```
+>RPI console
+>![lsb](obj/putty_2017-07-15_22-23-07.png)
+ 
+>Xming Code::Blocks runed on Windows
+>![lsb](Xming_2017-09-24_12-31-57.png)
 
- ![lsb](obj/putty_2017-07-15_22-23-07.png)
  
 <h2> How to configure Code::Blocks</h2>
 <p><i> Project->Build options...->Linker settings</i><br>
